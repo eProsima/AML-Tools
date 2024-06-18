@@ -4,13 +4,6 @@
     AML Toolchain Documentation
   </h1>
 
-.. image:: /rst/figures/eprosima_logo.svg
-  :height: 100px
-  :width: 100px
-  :align: left
-  :alt: eProsima
-  :target: http://www.eprosima.com/
-
 *AML Toolchain* is ...
 
 ########
@@ -18,18 +11,6 @@ Overview
 ########
 
 *AML Toolchain* includes the following tools:
-
-
-###############################
-Contacts and Commercial support
-###############################
-
-Find more about us at `eProsima's webpage <https://eprosima.com/>`_.
-
-Support available at:
-
-* Email: support@eprosima.com
-* Phone: +34 91 804 34 48
 
 #################################
 Contributing to the documentation
