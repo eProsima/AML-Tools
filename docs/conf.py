@@ -97,48 +97,6 @@ def get_version_from_cmakelists(cmakelists):
     return version
 
 
-def download_css(html_css_dir):
-    """
-    Download the common theme of eProsima readthedocs documentation.
-
-    The theme is defined in a CSS file that is hosted in the eProsima GitHub
-    repository with the index of all eProsima product documentation
-    (https://github.com/eProsima/all-docs).
-
-    :param html_css_dir: The directory to save the CSS stylesheet.
-    :return: True if the file was downloaded and generated successfully.
-        False if not.
-    """
-    url = (
-        'https://raw.githubusercontent.com/eProsima/all-docs/'
-        'master/source/_static/css/fiware_readthedocs.css')
-    try:
-        req = requests.get(url, allow_redirects=True, timeout=10)
-    except requests.RequestException as e:
-        print(
-            'Failed to download the CSS with the eProsima rtd theme.'
-            'Request Error: {}'.format(e)
-        )
-        return False
-    if req.status_code != 200:
-        print(
-            'Failed to download the CSS with the eProsima rtd theme.'
-            'Return code: {}'.format(req.status_code))
-        return False
-    os.makedirs(
-        os.path.dirname('{}/_static/css/'.format(html_css_dir)),
-        exist_ok=True)
-    theme_path = '{}/_static/css/online_eprosima_rtd_theme.css'.format(
-        html_css_dir)
-    with open(theme_path, 'wb') as f:
-        try:
-            f.write(req.content)
-        except OSError:
-            print('Failed to create the file: {}'.format(theme_path))
-            return False
-    return True
-
-
 def select_css(html_css_dir):
     """
     Select CSS file with the website's template.
@@ -146,15 +104,10 @@ def select_css(html_css_dir):
     :param html_css_dir: The directory to save the CSS stylesheet.
     :return: Returns a list of CSS files to be imported.
     """
-    ret = ['_static/tabs.css']
-    common_css = '_static/css/online_eprosima_rtd_theme.css'
-    local_css = '_static/css/eprosima_rtd_theme.css'
-    if download_css(html_css_dir):
-        print('Applying common CSS style file: {}'.format(common_css))
-        ret.append(common_css)
-    else:
-        print('Applying local CSS style file: {}'.format(local_css))
-        ret.append(local_css)
+    ret = [
+        '_static/tabs.css',
+        '_static/css/alma_theme.css'
+    ]
 
     return ret
 
@@ -218,8 +171,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = PROJECT_NAME
-copyright = '2024, eProsima'
-author = 'eProsima'
+copyright = '2024, ALMA'
+author = 'ALMA'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -303,14 +256,16 @@ todo_include_todos = False
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
+
 html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#
-# html_theme_options = {}
+
+html_theme_options = {
+    'logo_only': True,
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []
@@ -326,23 +281,24 @@ html_theme = 'sphinx_rtd_theme'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-#
-# html_logo = None
+
+html_logo = 'rst/_static/css/images/ALMA_logo_text.png'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs. This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 
-html_favicon = 'rst/_static/css/imgs/eProsima.ico'
+html_favicon = 'rst/_static/css/images/ALMA_logo.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
+
 html_static_path = ['rst/_static']
 
 html_context = {
-        'css_files': select_css(project_source_docs_dir),
-        }
+    'css_files': select_css(project_source_docs_dir),
+}
 
 
 # Add any extra paths that contain custom files (such as robots.txt or
@@ -392,8 +348,8 @@ html_context = {
 html_show_sphinx = False
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
-#
-# html_show_copyright = True
+
+html_show_copyright = True
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
@@ -452,7 +408,7 @@ latex_documents = [
     (master_doc,
      f'{COMPRESS_PROJECT_NAME}.tex',
      f'{PROJECT_NAME} Documentation',
-     'eProsima',
+     'ALMA',
      'manual'),
 ]
 

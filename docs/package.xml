@@ -6,14 +6,14 @@
   <description>
     Open Source tools to work with AML.
   </description>
-  <maintainer email="RaulSanchezMateos@eprosima.com">Raul Sánchez-Mateos</maintainer>
+  <maintainer email="raul@eprosima.com">Raul Sánchez-Mateos</maintainer>
   <maintainer email="juanlopez@eprosima.com">Juan López</maintainer>
   <maintainer email="irenebandera@eprosima.com">Irene Bandera</maintainer>
   <license file="LICENSE">Apache 2.0</license>
 
-  <url type="website">https://www.eprosima.com/</url>
-  <url type="bugtracker">https://github.com/eProsima/DDS-Record-Replay/issues</url>
-  <url type="repository">https://github.com/eProsima/DDS-Record-Replay</url>
+  <url type="website">https://alma-ai.eu/</url>
+  <url type="bugtracker">https://github.com/eProsima-Private/AML-Tools/issues</url>
+  <url type="repository">https://github.com/eProsima-Private/AML-Tools</url>
 
   <buildtool_depend>cmake</buildtool_depend>
 
