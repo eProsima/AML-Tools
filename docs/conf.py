@@ -130,9 +130,11 @@ project_binary_docs_dir = os.path.abspath(
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.todo',
-    'sphinx_tabs.tabs'
+    'breathe',
+    'sphinx_copybutton',
+    'sphinx_design'
 ]
+
 
 sphinx_tabs_disable_css_loading = False
 sphinx_tabs_disable_tab_closing = True
@@ -141,14 +143,10 @@ try:
     import sphinxcontrib.spelling  # noqa: F401
     extensions.append('sphinxcontrib.spelling')
 
-    # spelling_word_list_filename = 'spelling_wordlist.txt'
     spelling_word_list_filename = [
         'rst/spelling_wordlist.txt',
     ]
 
-    from sphinxcontrib.spelling.filters import ContractionFilter
-    spelling_filters = [ContractionFilter]
-    spelling_ignore_contributor_names = False
 except ImportError:
     pass
 
@@ -197,7 +195,8 @@ release = u'{}.{}.{}'.format(
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+
+language = 'en'
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -239,6 +238,7 @@ exclude_patterns = [
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
+pygments_dark_style = "monokai"
 
 # A list of ignored prefixes for module index sorting.
 # modindex_common_prefix = []
@@ -257,14 +257,16 @@ todo_include_todos = False
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'furo'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 
 html_theme_options = {
-    'logo_only': True,
+    "light_logo": "images/aml_toolkit_logo_light.png",
+    "dark_logo": "images/aml_toolkit_logo_dark.png",
+    "sidebar_hide_name": True,
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -282,13 +284,13 @@ html_theme_options = {
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 
-html_logo = 'rst/_static/css/images/ALMA_logo_text.png'
+# html_logo = 'rst/_static/images/ALMA_logo_text.png'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs. This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 
-html_favicon = 'rst/_static/css/images/ALMA_logo.ico'
+html_favicon = 'rst/_static/images/ALMA_logo.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -296,9 +298,9 @@ html_favicon = 'rst/_static/css/images/ALMA_logo.ico'
 
 html_static_path = ['rst/_static']
 
-html_context = {
-    'css_files': select_css(project_source_docs_dir),
-}
+# html_context = {
+#     'css_files': select_css(project_source_docs_dir),
+# }
 
 
 # Add any extra paths that contain custom files (such as robots.txt or

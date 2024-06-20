@@ -1,6 +1,6 @@
 .. include:: /rst/exports/roles.include
 
-.. image:: /rst/figures/intro/amltoolkit_banner.png
+.. image:: /rst/figures/intro/aml_toolkit_banner_light.png
     :align: center
     :width: 100%
     :alt: ALMA Toolkit
