@@ -11,11 +11,6 @@ AML Pipeline
 
     Not available yet.
 
-.. contents::
-    :local:
-    :backlinks: none
-    :depth: 2
-
 **********
 Background
 **********
