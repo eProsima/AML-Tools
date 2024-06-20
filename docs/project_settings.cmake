@@ -20,7 +20,7 @@ set(MODULE_NAME
     amltools_docs)
 
 set(MODULE_SUMMARY
-    "Sphinx documentation for AML Toolkit project.")
+    "AML Toolkit Documentation")
 
 set(MODULE_FIND_PACKAGES
     Sphinx

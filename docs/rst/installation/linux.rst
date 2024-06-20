@@ -3,7 +3,7 @@
 .. _installation_manual_linux:
 
 ######################
-AML Toolchain on Linux
+AML Toolkit on Linux
 ######################
 
 .. warning::
