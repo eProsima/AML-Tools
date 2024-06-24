@@ -8,26 +8,48 @@
 |br|
 
 
-*AML Toolkit* is ...
+*AML Toolkit* is a set of software tools that allows users to develop, train, and deploy Algebraic Machine Learning (AML) models.
+These tools are designed to be used by researchers, developers, and industry professionals who want to implement AML models in their applications.
+*AML Toolkit* aims to provide users, developers, and researchers with the documentation, guides, and examples needed to start working with AML.
+
+
+These tools cover the entire process of developing AML applications, from data collection and preprocessing, to generating embeddings for problem description, validating those embeddings, training the model using an AML engine, perform inference using the resulted AML model, and validate the results.
+
+
+This framework is developed as part of the `ALMA project <https://alma-ai.eu/>`__.
+The aim of the EU-funded ALMA project is to leverage AML properties to develop a new generation of interactive, human-centric machine learning systems.
+These systems are expected to reduce bias and prevent discrimination, remember what they know when they are taught something new, facilitate trust and reliability and integrate complex ethical constraints into human-artificial intelligence systems.
+Furthermore, they are expected to promote distributed and collaborative learning.
 
 ########
 Overview
 ########
 
-*AML Toolkit* includes the following tools:
+*AML Toolkit* includes the following components:
 
-#################################
-Contributing to the documentation
-#################################
+* AML Description Language (AML-DL) specification, command set and examples.
+  AML-DL leverages these simple tools to provide an extended set of instructions with two goals: to give the user the capability to describe elaborated embeddings with a concise code, and to establish a methodology to build embeddings for complex problems into semilattices and other algebras with idempotent operators.
+* Architecture and usage of the AML-DL Interpreter, a software tool that transforms human-readable semantic embeddings, written in AML-DL, into AML input data for the AML Engine.
+  The *AML Toolkit* also provides a set of examples of how to use the AML-DL Interpreter.
+* AML-DL Consistency Checker user & developer guide, examples of usage, and consistent and inconsistent embedding catalog.
+  The AMLDL Consistency Checker is a software tool to study the consistency of algebraic semantic embeddings into semilattices.
+  Given a semantic embedding expressed using the AML-DL, it can determine if the embedding is consistent or not.
+  If the embedding is not consistent the AML-DL Consistency Checker indicates the potential primary and secondary sources of the inconsistency.
 
-*AML Toolkit Documentation* is an open source project, and as such all contributions, both in the form of
-feedback and content generation, are most welcomed.
-To make such contributions, please refer to the
-`Contribution Guidelines <https://github.com/eProsima/all-docs/blob/master/CONTRIBUTING.md>`_ hosted in eProsima's GitHub
-repositories.
+#########################
+Get access to AML Toolkit
+#########################
 
-##############################
-Structure of the documentation
-##############################
+To request a free trial license of *AML Toolkit* software tools and the *AML Engine* required to run the examples of this documentation, please send an email to `martin.maroto@algebraic.ai <martin.maroto@algebraic.ai>`__ with the subject line "*AML Free Trial License Request*".
+In the body of the email, kindly include your name, contact information, and a brief description of your intended use for the software.
+Our team will review your request and provide you with a free trial license at the earliest convenience.
 
-This documentation is organized into the sections below.
+Thank you for your interest in AML!
+
+----
+
+.. image:: /rst/figures/eu_flag.jpg
+  :height: 45px
+  :align: left
+
+This project (ALMA: Human Centric Algebraic Machine Learning) has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 952091.

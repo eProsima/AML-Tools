@@ -33,6 +33,9 @@
    :hidden:
 
    Introduction </rst/amldl/intro>
+   /rst/amldl/interpreter_impl
+   /rst/amldl/command_set
+   /rst/amldl/examples
 
 .. _index_tutorials:
 

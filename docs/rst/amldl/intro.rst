@@ -36,7 +36,7 @@ Rather than encoding A into B using a fixed interpretation, a semantic embedding
 Searching for an appropriate (simple and accurate) interpretation of A into B is a natural problem that we, humans, are not so familiar with.
 When we communicate an object A to a listener B using English we start with a language and its interpretation shared between the speaker and B.
 The communication with B occurs with an interpretation that is mostly fixed.
-The goal of the Algebraic Machine Learning Description Language (AMLDL) is to communicate with a very simple listener B, a semilattice.
+The goal of the Algebraic Machine Learning Description Language (AML-DL) is to communicate with a very simple listener B, a semilattice.
 Semilattices live in Plato's world and we do not share with them a language.
 On the other hand, their simple structure allows us to understand them so well that it becomes possible to find simple interpretations for any A.
 
@@ -141,30 +141,46 @@ AML-DL Grammar
 AML-DL Commands
 ===============
 
-AML-DL 0.1 data types are constants, vectors of constants, elements, vectors of elements, duples, and vectors of duples.
-Vectors may or may not be indexed.
-Indexed vectors result from the application of the iterator command :math:`T`.
+AML-DL v0.1 data types are constants, vectors of constants, elements, vectors of elements, duples, and vectors of duples.
 
-Commands :math:`C(name)` and :math:`CV(name, n)` define a constant and a vector of constants of length :math:`n`, respectively.
-To retrieve these elements by name, we use the find operator :math:`F(name)`.
-Vectors of elements can be defined as :math:`v = V([name])` and can be built by appending elements using :math:`APP(v, e)` that appends :math:`e` to vector :math:`v`.
+*   :math:`T`.
+    Vectors may or may not be indexed. Indexed vectors result from the application of the iterator command :math:`T`.
 
-To calculate the idempotent operation we can use the command :math:`M(p1, p2, ...)` where :math:`p1, p2, ...` are constants.
+*   :math:`C(name)` and :math:`CV(name, n)`.
+    These commands define a constant and a vector of constants of length :math:`n`, respectively.
 
-Indexing and iterating along a vector can be done with the help of the iterator command :math:`T(v)`.
-For example, assume :math:`v` is a vector with elements :math:`v[0], v[1], ..., v[n-1]`.
-Then :math:`M(T(v), e)` produces a vector :math:`v[0] \odot e, v[1] \odot e, ..., v[n-1] \odot e`.
-Iterators can have one or many indexes associated to them.
-An index is identified by a positive whole number.
-For example, if :math:`v` and :math:`w` are vectors of the same size, :math:`M(T(v, 1), T(w, 1), e)` returns vector :math:`v[0] \odot w[0] \odot e, v[1] \odot w[1] \odot e, ..., v[n-1] \odot w[n-1] \odot e`, a vector of size :math:`n`.
-We now assume that :math:`w` has size :math:`m`.
-If we use different indexes, :math:`M(T(v, 1), T(w, 2), e)` returns :math:`v[0] \odot w[0] \odot e, v[0] \odot w[1] \odot e, ..., v[0] \odot w[m-1] \odot e, ..., v[1] \odot w[0] \odot e, ..., v[n-1] \odot w[m-1] \odot e`, a vector of size :math:`n \times m`.
+*   :math:`F(name)`.
+    To retrieve the elements of a vector of constants by name, we use the find operator :math:`F(name)`.
 
-Positive and negative duples are defined using :math:`INC(a, b)` and :math:`EXC(a, b)` respectively, which directly translates into :math:`a \leq b` and :math:`a \nleq b`.
-The iterator command associates indexes that remain after a command is applied.
-For example :math:`INC(a, M(T(v), e))` produces the vector of :math:`n` duples: :math:`a \leq v[0] \odot e, a \leq v[1] \odot e, ..., a \leq v[n-1] \odot e`.
-If we invoke :math:`INC(T(w, 1), M(T(v, 1), e))` assuming vector :math:`v` and :math:`w` have the same size then we obtain the vector of :math:`n` duples: :math:`w[0] \leq v[0] \odot e, w[1] \leq v[1] \odot e, ..., w[n-1] \leq v[n-1] \odot e`.
-Accordingly, using different indexes, :math:`INC(T(w, 2), M(T(v, 1), e))` will produce :math:`n \times m` positive duples: :math:`w[0] \leq v[0] \odot e, w[0] \leq v[1] \odot e, ..., w[0] \leq v[n-1] \odot e, w[1] \leq v[0] \odot e, ..., w[m-1] \leq v[n-1] \odot e`.
+*   :math:`APP(v, e)`.
+    Vectors of elements can be defined as :math:`v = V([name])` and can be built by appending elements using :math:`APP(v, e)` that appends :math:`e` to vector :math:`v`.
 
-A few auxiliary commands are available; :math:`R(v, d)` that removes component :math:`d` from a copy of vector :math:`v`, :math:`SOME(v, p)` that produces a vector with components chosen at random from vector :math:`v` with probability :math:`p`, and :math:`CMP(p1, p2)` that declares a bidirectional map between objects :math:`p1` and :math:`p2` such that :math:`CMP(p1)` returns :math:`p2` and :math:`CMP(p2)` returns :math:`p1`.
-:math:`CMP` acts component-wise if :math:`p1` and :math:`p2` are vectors of the same size.
+*   :math:`M(p1, p2, ...)`.
+    To calculate the idempotent operation we can use the command :math:`M(p1, p2, ...)` where :math:`p1, p2, ...` are constants.
+
+*   :math:`T(v)`.
+    Indexing and iterating along a vector can be done with the help of the iterator command :math:`T(v)`.
+    For example, assume :math:`v` is a vector with elements :math:`v[0], v[1], ..., v[n-1]`.
+    Then :math:`M(T(v), e)` produces a vector :math:`v[0] \odot e, v[1] \odot e, ..., v[n-1] \odot e`.
+    Iterators can have one or many indexes associated to them.
+    An index is identified by a positive whole number.
+    For example, if :math:`v` and :math:`w` are vectors of the same size, :math:`M(T(v, 1), T(w, 1), e)` returns vector :math:`v[0] \odot w[0] \odot e, v[1] \odot w[1] \odot e, ..., v[n-1] \odot w[n-1] \odot e`, a vector of size :math:`n`.
+    We now assume that :math:`w` has size :math:`m`.
+    If we use different indexes, :math:`M(T(v, 1), T(w, 2), e)` returns :math:`v[0] \odot w[0] \odot e, v[0] \odot w[1] \odot e, ..., v[0] \odot w[m-1] \odot e, ..., v[1] \odot w[0] \odot e, ...,` |br|:math:`v[n-1] \odot w[m-1] \odot e`, a vector of size :math:`n \times m`.
+
+*   :math:`INC(a, b)` and :math:`EXC(a, b)`
+
+    Positive and negative duples are defined using :math:`INC(a, b)` and :math:`EXC(a, b)` respectively, which directly translates into :math:`a \leq b` and :math:`a \nleq b`.
+    The iterator command associates indexes that remain after a command is applied.
+    For example :math:`INC(a, M(T(v), e))` produces the vector of :math:`n` duples: :math:`a \leq v[0] \odot e, a \leq v[1] \odot e, ..., a \leq v[n-1] \odot e`.
+    If we invoke :math:`INC(T(w, 1), M(T(v, 1), e))` assuming vector :math:`v` and :math:`w` have the same size then we obtain the vector of :math:`n` duples: :math:`w[0] \leq v[0] \odot e, w[1] \leq v[1] \odot e, ..., w[n-1] \leq v[n-1] \odot e`.
+    Accordingly, using different indexes, :math:`INC(T(w, 2), M(T(v, 1), e))` will produce :math:`n \times m` positive duples: :math:`w[0] \leq v[0] \odot e, w[0] \leq v[1] \odot e, ..., w[0] \leq v[n-1] \odot e, w[1] \leq v[0] \odot e, ...,` |br|:math:`w[m-1] \leq v[n-1] \odot e`.
+
+*  :math:`R(v, d)`.
+   Auxiliary command that removes component :math:`d` from a copy of vector :math:`v`.
+
+*  :math:`SOME(v, p)`.
+   Auxiliary command that produces a vector with components chosen at random from vector :math:`v` with probability :math:`p`.
+
+*  :math:`CMP(p1, p2)`.
+   Auxiliary command that declares a bidirectional map between objects :math:`p1` and :math:`p2` such that :math:`CMP(p1)` returns :math:`p2` and :math:`CMP(p2)` returns :math:`p1`. :math:`CMP` acts component-wise if :math:`p1` and :math:`p2` are vectors of the same size.

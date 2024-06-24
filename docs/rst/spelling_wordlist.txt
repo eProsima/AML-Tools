@@ -57,6 +57,7 @@ schema
 schemas
 semilattice
 Semilattice
+semilattices
 timepoint
 utils
 validator
