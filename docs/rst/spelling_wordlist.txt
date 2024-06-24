@@ -10,8 +10,8 @@ cpp
 dataflow
 datagram
 datetime
-ddsrecorder
 ddspipe
+ddsrecorder
 ddsrouter
 deserialization
 deserialize
@@ -32,8 +32,8 @@ github
 gMock
 Gtest
 guid
-IDL
 idl
+IDL
 IPv
 kubernetes
 localhost
@@ -55,6 +55,9 @@ runtime
 scalable
 schema
 schemas
+semilattice
+Semilattice
+semilattices
 timepoint
 utils
 validator

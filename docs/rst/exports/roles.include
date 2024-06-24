@@ -1,3 +1,7 @@
 .. |br| raw:: html
 
   <br/>
+
+
+.. role:: raw-math(raw)
+    :format: latex html
