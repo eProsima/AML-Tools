@@ -1,6 +1,6 @@
 .. include:: /rst/exports/roles.include
 
-.. _amldl_command_set:
+.. _amldl_specification_command_set:
 
 ###########
 Command Set

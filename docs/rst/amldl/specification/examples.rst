@@ -1,6 +1,6 @@
 .. include:: /rst/exports/roles.include
 
-.. _amldl_examples:
+.. _amldl_specification_examples:
 
 #############
 Code Examples
