@@ -32,10 +32,8 @@
    :numbered: 5
    :hidden:
 
-   Introduction </rst/amldl/intro>
-   /rst/amldl/interpreter_impl
-   /rst/amldl/command_set
-   /rst/amldl/examples
+   /rst/amldl/specification/amldl
+   /rst/amldl/interpreter/interpreter
 
 .. _index_tutorials:
 
