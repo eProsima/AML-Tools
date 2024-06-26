@@ -34,7 +34,8 @@
 
    /rst/amldl/specification/amldl
    /rst/amldl/interpreter/interpreter
-   /rst/amldl/consistency_checker/consistency_checker.rst
+   /rst/amldl/consistency_checker/consistency_checker
+   /rst/amldl/debugger/debugger
 
 .. _index_tutorials:
 
