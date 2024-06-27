@@ -48,7 +48,7 @@ Overview
 Get access to AML Toolkit
 #########################
 
-To request a free trial license of *AML Toolkit* software tools and the *AML Engine* required to run the examples of this documentation, please send an email to `martin.maroto@algebraic.ai <martin.maroto@algebraic.ai>`__ with the subject line "*AML Free Trial License Request*".
+To request a free trial license of *AML Toolkit* software tools and the *AML Engine* required to run the examples of this documentation, please send an email to `info@algebraic.ai <info@algebraic.ai>`__ with the subject line "*AML Free Trial License Request*".
 In the body of the email, kindly include your name, contact information, and a brief description of your intended use for the software.
 Our team will review your request and provide you with a free trial license at the earliest convenience.
 

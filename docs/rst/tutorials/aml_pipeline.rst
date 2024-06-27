@@ -8,7 +8,7 @@ AML Pipeline
 
     Not available yet.
 
-**********
+
 Background
 **********
 
@@ -16,7 +16,6 @@ Background
 
     TODO
 
-*************
 Prerequisites
 *************
 
